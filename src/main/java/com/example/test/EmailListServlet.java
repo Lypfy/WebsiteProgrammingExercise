@@ -13,7 +13,7 @@ public class EmailListServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String url = "/index.jsp";
-
+                
         String action = request.getParameter("action");
         if (action == null) {
             action = "join";
@@ -25,13 +25,16 @@ public class EmailListServlet extends HttpServlet {
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");
+            String dob = request.getParameter("dob");
+            String source = request.getParameter("source");
+            String offers = request.getParameter("offers");
+            String news = request.getParameter("news");
+            String contactMethod = request.getParameter("contactMethod");
 
+            SurveyDTO surveyDTO = new SurveyDTO(firstName, lastName, email, dob, source, offers, news, contactMethod);
+            Survey survey = surveyDTO.toSurvey();
 
-            User user = new User(firstName, lastName, email);
-//            UserDB.insert(user);
-
-
-            request.setAttribute("user", user);
+            request.setAttribute("survey", survey);
             url = "/thanks.jsp";
         }
 
