@@ -12,6 +12,11 @@
         <url-pattern>/emailList</url-pattern>
     </servlet-mapping>
 
+    <error-page>
+        <error-code>405</error-code>
+        <location>/test</location>
+    </error-page>
+
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
