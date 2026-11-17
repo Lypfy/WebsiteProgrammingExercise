@@ -1,4 +1,7 @@
-package com.example.test;
+package com.example.test.dto;
+
+import com.example.test.model.Survey;
+import com.example.test.model.User;
 
 import java.io.Serializable;
 

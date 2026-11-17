@@ -1,6 +1,9 @@
-package com.example.test;
+package com.example.test.controller;
 
 import java.io.IOException;
+
+import com.example.test.model.Survey;
+import com.example.test.dto.SurveyDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -51,6 +54,9 @@ public class EmailListServlet extends HttpServlet {
 
         getServletContext().log("Forward tới: " + url);
         
+        int currentYear = java.time.Year.now().getValue();
+        request.setAttribute("currentYear", currentYear);
+
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
@@ -67,6 +73,9 @@ public class EmailListServlet extends HttpServlet {
             return;
         }
 
+        int currentYear = java.time.Year.now().getValue();
+        request.setAttribute("currentYear", currentYear);
+        
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         // doPost(request, response);
     }

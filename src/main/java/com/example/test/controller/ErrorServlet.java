@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.controller;
 
 import java.io.IOException;
 
@@ -13,22 +13,12 @@ public class ErrorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
-            // request.setAttribute("message", "Test Servlet GET");
-
-            // getServletContext()
-            //         .getRequestDispatcher("/test.jsp")
-            //         .forward(request, response);
             handleError(request, response);
         }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
-            // request.setAttribute("message", "Test Servlet POST");
-
-            // getServletContext()
-            //         .getRequestDispatcher("/test.jsp")
-            //         .forward(request, response);
             handleError(request, response);
         }
 
@@ -48,7 +38,7 @@ public class ErrorServlet extends HttpServlet {
             request.setAttribute("finalMsg", finalMsg);
 
             getServletContext()
-                    .getRequestDispatcher("/test.jsp")
+                    .getRequestDispatcher("/error.jsp")
                     .forward(request, response);
         }
 }

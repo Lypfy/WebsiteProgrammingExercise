@@ -5,7 +5,7 @@
          version="6.0">
     <servlet>
         <servlet-name>EmailListServlet</servlet-name>
-        <servlet-class>com.example.test.EmailListServlet</servlet-class>
+        <servlet-class>com.example.test.controller.EmailListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EmailListServlet</servlet-name>
@@ -14,7 +14,7 @@
 
     <error-page>
         <error-code>405</error-code>
-        <location>/test</location>
+        <location>/error</location>
     </error-page>
 
     <session-config>

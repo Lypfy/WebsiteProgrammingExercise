@@ -1,13 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murach's Java Servlets and JSP - Survey</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/main.css">
-</head>
-<body>
+<%@ include file="/includes/header.jsp" %>
     <main class="container">
         <header>
             <img src="${pageContext.request.contextPath}/assets/murach_logo.png" alt="Murach Logo" class="logo">
@@ -94,5 +86,8 @@
             </div>
         </form>
     </main>
-</body>
-</html>
+<%@ include file="/includes/footer.jsp" %>
+
+  
+
+  

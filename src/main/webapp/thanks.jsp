@@ -1,13 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murach's Java Servlets and JSP - Survey Confirmation</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/main.css">
-</head>
-<body>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ include file="/includes/header.jsp" %>
     <main class="container">
         <header>
             <img src="${pageContext.request.contextPath}/assets/thank_you.png" alt="Thank you image" class="logo">
@@ -17,54 +10,55 @@
         <p class="description">Here is the information that you entered:</p>
 
         <section class="thanks-form-section">
-            <div class="field-row">
+            <section class="field-row">
                 <label>First Name:</label>
                 <span>${survey.user.firstName}</span>
-            </div>
+            </section>
 
-            <div class="field-row">
+            <section class="field-row">
                 <label>Last Name:</label>
                 <span>${survey.user.lastName}</span>
-            </div>
+            </section>
 
-            <div class="field-row">
+            <section class="field-row">
                 <label>Email:</label>
                 <span>${survey.user.email}</span>
-            </div>
+            </section>
 
-            <div class="field-row">
+            <section class="field-row">
                 <label>Date of Birth:</label>
                 <span>${survey.user.dob}</span>
-            </div>
+            </section>
 
-            <div class="field-row">
+            <section class="field-row">
                 <label>Heard From:</label>
                 <span>${survey.source}</span>
-            </div>
+            </section>
 
-            <div class="field-row">
+            <section class="field-row">
                 <label>Wants Updates:</label>
                 <span>${survey.offers != null && !survey.offers.isEmpty() ? 'Yes' : 'No'}</span>
-            </div>
+            </section>
 
-            <div class="field-row">
+            <section class="field-row">
                 <label>Wants News:</label>
                 <span>${survey.news != null && !survey.news.isEmpty() ? 'Yes' : 'No'}</span>
-            </div>
+            </section>
 
-            <div class="field-row">
-                <label>Contact Via:</label>
-                <span>${survey.contactMethod}</span>
-            </div>
+            <c:if test="${not empty survey.offers or not empty survey.news}">
+                <section class="field-row">
+                    <label>Contact Via:</label>
+                    <span>${survey.contactMethod}</span>
+                </section>
+            </c:if>
         </section>
 
         <p class="final-text">To enter another response, click the button below:</p>
         <form action="${pageContext.request.contextPath}/emailList" method="get">
             <input type="hidden" name="action" value="join">
-            <div class="action-row">
+            <section class="action-row">
                 <button type="submit" id="submit" class="btn-submit">Return</button>
-            </div>
+            </section>
         </form>
     </main>
-</body>
-</html>
+<%@ include file="/includes/footer.jsp" %>
